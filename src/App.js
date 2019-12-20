@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-// let proxyURL = 'https://cors-anywhere.herokuapp.com/'
-let charactersAPI = 'http://localhost:3010/characters/';
+let proxyURL = 'https://cors-anywhere.herokuapp.com/'
+let charactersAPI = 'https://compendium-api.herokuapp.com/api/characters';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,11 +19,11 @@ class App extends React.Component {
   //   .then(json => console.log(json))
   // }
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get(`${proxyURL}${charactersAPI}`)
     .then(res => {
       const characters = res.data;
       this.setState({
-        characters: characters
+        characters: characters.data
       })
     })
   }
@@ -31,9 +31,9 @@ class App extends React.Component {
   render(){
     return(
       <div>
-          <ul>
-        { this.state.characters.map(character => <li>{character.name}</li>)}
-      </ul>
+      {this.state.characters.map((character, index) => (
+      <p> hello, {character.name} who is {character.age} years old {character.species}.</p>
+    ))};
       </div>
     )
   }
