@@ -10,8 +10,7 @@ import React from 'react'
 // =============================
 // COMPONENT CLASS
 // =============================
-class Characters extends React.Component{
-
+class CharactersDisplay extends React.Component{
 
 //// ==============
 //// RENDER
@@ -19,8 +18,11 @@ class Characters extends React.Component{
 
   render() {
     return (
-      <li>
-      </li>
+      <div>
+      {this.props.characters.map((character, index) => (
+      <p key={index}> hello, {character.name} who is {character.age} years old {character.species}.</p>
+    ))};
+      </div>
     )
   }
 
@@ -29,4 +31,4 @@ class Characters extends React.Component{
 // =============================
 // EXPORT
 // =============================
-export default Characters;
+export default CharactersDisplay;
