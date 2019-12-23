@@ -35,14 +35,20 @@ handleView = (view) => {
     case 'characterMain':
         pageTitle = 'Character Main'
         break;
-    case 'characterForm':
+    case 'addCharacterForm':
         pageTitle = 'Character Form'
+        break;
+    case 'editCharacterForm':
+        pageTitle = 'Edit Character Form'
         break;
     case 'monsterMain':
         pageTitle = 'Monster Main'
         break;
-    case 'monsterForm':
+    case 'addMonsterForm':
         pageTitle = 'Monster Form'
+        break;
+    case 'editMonsterForm':
+        pageTitle = 'Edit Monster Form'
         break;
     default:
       break;
@@ -74,6 +80,10 @@ pullMonster = () => {
       })
     })
   }
+
+handleCreate = (createdData) => {
+  console.log(createdData);
+}
 
 // pullUser = () => {
 //     axios.get(`${proxyURL}${user}`)
@@ -120,13 +130,14 @@ pullMonster = () => {
       />
       : null
     }
-    {this.state.view.page === 'characterForm'
+    {this.state.view.page === 'addCharacterForm'
       ? <CharacterForm
       view={this.state.view}
+      handleCreate={this.handleCreate}
       />
       : null
     }
-    {this.state.view.page === 'monsterForm'
+    {this.state.view.page === 'addMonsterForm'
       ? <MonsterForm
       view={this.state.view}
       />

@@ -24,3 +24,8 @@ monsters={this.state.monsters}/>
 
 
 <li onClick={() => {this.props.handleView('')}}></li>
+
+<label>
+  public
+  <input type="checkbox" placeholder="public" id="public" value={this.state.public} onChange={this.handleCheckChange}/>
+</label><br/>

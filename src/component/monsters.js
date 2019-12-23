@@ -19,7 +19,7 @@ class MonstersDisplay extends React.Component{
   render() {
     return (
       <div>
-      <h2 onClick={() => {this.props.handleView('monsterForm')}}
+      <h2 onClick={() => {this.props.handleView('addMonsterForm')}}
       >MonsterForm</h2>
       {this.props.monsters.map((monsters, index) => (
       <article key={index}> hello, {monsters.name} who is {monsters.age} years old {monsters.species}.
