@@ -23,7 +23,10 @@ class CharactersDisplay extends React.Component{
         >CharacterForm</h2>
       {this.props.view.page === 'characterMain'
         ? this.props.characters.map((character, index) => (
-          <article key={index}> hello, {character.name} who is {character.age} years old {character.species}.
+          <article className="card" key={index}>
+          Name: {character.name}<br/>
+          Age: {character.age}<br/>
+          Species: {character.species}<br/>
           <ul>
             <li onClick={() => {this.props.handleView('editCharacterForm', character)}}>edit character</li>
             <li onClick={() => {this.props.removeCharacter(character.id)}}>delete character</li>
