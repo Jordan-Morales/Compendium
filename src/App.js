@@ -103,6 +103,24 @@ postNewCharacter = () => {
       console.log(err);
     })
   }
+removeCharacter = (id) => {
+  id = parseInt(id)
+  axios.delete(`${manipulateCharacterAPI}/${id}`,
+  {
+    data: {
+      "id": {id}
+    }
+  })
+  .then((err, res) => {
+    this.setState(prevState => {
+        const characters = prevState.characters.filter(character => character.id !== id)
+        return { characters }
+      })
+      console.log(err);
+  }).catch((err) => {
+    console.log(err);
+  })
+}
 
 pullMonster = () => {
     axios.get(`${proxyURL}${monsterAPI}`)
@@ -159,6 +177,7 @@ postNewMonster = () => {
       characters={this.state.characters}
       view={this.state.view}
       handleView={this.handleView}
+      removeCharacter={this.removeCharacter}
       />
       : null
     }
