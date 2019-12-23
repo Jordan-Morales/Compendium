@@ -1,0 +1,31 @@
+<CharactersDisplay
+characters={this.state.characters}/>
+
+<MonstersDisplay
+monsters={this.state.monsters}/>
+
+
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+
+<Router>
+  <div className="container">
+    <nav>
+      <Link to="/">Home</Link>
+      <Link to="/characters">Characters</Link>
+      <Link to="/monsters">Monsters</Link>
+    </nav>
+
+  <Router path="/characters" render={(props) =>
+  (<CharactersDisplay {...props} characters={this.state.characters}/>)
+  }/>
+
+  </div>
+</Router>
+
+
+<li onClick={() => {this.props.handleView('')}}></li>
+
+<label>
+  public
+  <input type="checkbox" placeholder="public" id="public" value={this.state.public} onChange={this.handleCheckChange}/>
+</label><br/>
