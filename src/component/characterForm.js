@@ -51,7 +51,7 @@ class CharacterForm extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.view.page === 'addCharacterForm') {
-      this.props.handleCreate(this.state)
+      this.props.postNewCharacter(this.props.handleCreate(this.state))
     } else if(this.props.view.page === 'editCharacterForm') {
       this.props.handleUpdate(this.state)
     }

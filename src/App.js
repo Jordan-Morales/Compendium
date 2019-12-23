@@ -11,7 +11,11 @@ import Nav from './component/nav'
 let proxyURL = 'https://cors-anywhere.herokuapp.com/'
 let charactersAPI = 'https://compendium-api.herokuapp.com/api/characters';
 let monsterAPI = 'https://compendium-api.herokuapp.com/api/monsters';
+let manipulateCharacterAPI = 'https://compendium-api.herokuapp.com/api/character';
+let manipulateMonsterAPI = 'https://compendium-api.herokuapp.com/api/monster';
 // let user = 'https://compendium-api.herokuapp.com/api/user';
+
+let transferData = {};
 
 class App extends React.Component {
   constructor(props) {
@@ -61,6 +65,12 @@ handleView = (view) => {
   })
 }
 
+
+handleCreate = (createdData) => {
+  transferData = createdData;
+  console.log(createdData);
+}
+
 pullCharacters = () => {
     axios.get(`${proxyURL}${charactersAPI}`)
     .then(res => {
@@ -68,6 +78,29 @@ pullCharacters = () => {
       this.setState({
         characters: characters.data
       })
+    })
+  }
+// Working Character Post
+postNewCharacter = () => {
+    axios.post(`${manipulateCharacterAPI}`,
+    {
+      public: transferData.public,
+      name: transferData.name,
+      species: transferData.species,
+      age: transferData.age,
+      gender: transferData.gender,
+      health: transferData.health,
+      attack: transferData.attack,
+      defense: transferData.defense,
+      speed: transferData.speed,
+      magic: transferData.magic,
+      ability: transferData.ability
+    })
+    .then((err, res) => {
+      console.log(err);
+    }).catch((err) => {
+      console.log(transferData);
+      console.log(err);
     })
   }
 
@@ -81,9 +114,16 @@ pullMonster = () => {
     })
   }
 
-handleCreate = (createdData) => {
-  console.log(createdData);
-}
+postNewMonster = () => {
+    axios.post(`${proxyURL}${manipulateMonsterAPI}`)
+    .then(res => {
+      const characters = res.data;
+      this.setState({
+        characters: characters.data
+      })
+    })
+  }
+
 
 // pullUser = () => {
 //     axios.get(`${proxyURL}${user}`)
@@ -134,6 +174,7 @@ handleCreate = (createdData) => {
       ? <CharacterForm
       view={this.state.view}
       handleCreate={this.handleCreate}
+      postNewCharacter={this.postNewCharacter}
       />
       : null
     }
