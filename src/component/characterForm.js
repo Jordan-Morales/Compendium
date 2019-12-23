@@ -53,25 +53,25 @@ class CharacterForm extends React.Component{
     if (this.props.view.page === 'addCharacterForm') {
       this.props.postNewCharacter(this.props.handleCreate(this.state))
     } else if(this.props.view.page === 'editCharacterForm') {
-      this.props.handleUpdate(this.state)
+      this.props.updateCharacter(this.props.handleCreate(this.state))
     }
   }
 
   componentDidMount() {
-    // this.setState({
-    //   id: this.props.formInputs.id,
-    //   public: this.props.formInputs.public,
-    //   name: this.props.formInputs.name,
-    //   species: this.props.formInputs.species,
-    //   age: this.props.formInputs.age,
-    //   gender: this.props.formInputs.gender,
-    //   health: this.props.formInputs.health,
-    //   attack: this.props.formInputs.attack,
-    //   defense: this.props.formInputs.defense,
-    //   speed: this.props.formInputs.speed,
-    //   magic: this.props.formInputs.magic,
-    //   ability: this.props.formInputs.ability
-    // })
+    this.setState({
+      id: this.props.formInputsCharacter.id,
+      public: this.props.formInputsCharacter.public,
+      name: this.props.formInputsCharacter.name,
+      species: this.props.formInputsCharacter.species,
+      age: this.props.formInputsCharacter.age,
+      gender: this.props.formInputsCharacter.gender,
+      health: this.props.formInputsCharacter.health,
+      attack: this.props.formInputsCharacter.attack,
+      defense: this.props.formInputsCharacter.defense,
+      speed: this.props.formInputsCharacter.speed,
+      magic: this.props.formInputsCharacter.magic,
+      ability: this.props.formInputsCharacter.ability
+    })
   }
   // ==============
   // RENDER

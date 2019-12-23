@@ -26,7 +26,7 @@ class CharactersDisplay extends React.Component{
           <article key={index}> hello, {character.name} who is {character.age} years old {character.species}.
           {character.id}
           <ul>
-            <li onClick={() => {this.props.handleView('editCharacterForm')}}>edit character</li>
+            <li onClick={() => {this.props.handleView('editCharacterForm', character)}}>edit character</li>
             <li onClick={() => {this.props.removeCharacter(character.id)}}>delete character</li>
           </ul>
           </article>

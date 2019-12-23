@@ -30,8 +30,22 @@ class App extends React.Component {
     }
   }
 
-handleView = (view) => {
+handleView = (view, data) => {
   let pageTitle = '';
+  let formInputsCharacter = {
+    id: null,
+    public: false,
+    name: '',
+    species: '',
+    age: 0,
+    gender: '',
+    health: 0,
+    attack: 0,
+    defense: 0,
+    speed: 0,
+    magic: 0,
+    ability: ''
+  }
   switch (view) {
     case 'main':
       pageTitle = 'Landing Page'
@@ -44,6 +58,20 @@ handleView = (view) => {
         break;
     case 'editCharacterForm':
         pageTitle = 'Edit Character Form'
+        formInputsCharacter = {
+          id: data.id,
+          public: data.public,
+          name: data.name,
+          species: data.species,
+          age: data.age,
+          gender: data.gender,
+          health: data.health,
+          attack: data.attack,
+          defense: data.defense,
+          speed: data.speed,
+          magic: data.magic,
+          ability: data.ability
+        }
         break;
     case 'monsterMain':
         pageTitle = 'Monster Main'
@@ -61,7 +89,8 @@ handleView = (view) => {
     view: {
       page: view,
       pageTitle: pageTitle
-    }
+    },
+    formInputsCharacter: formInputsCharacter
   })
 }
 
@@ -80,6 +109,7 @@ pullCharacters = () => {
       })
     })
   }
+
 // Working Character Post
 postNewCharacter = () => {
     axios.post(`${manipulateCharacterAPI}`,
@@ -103,6 +133,32 @@ postNewCharacter = () => {
       console.log(err);
     })
   }
+
+updateCharacter = (id) => {
+    id = parseInt(id)
+    axios.put(`${manipulateCharacterAPI}/${id}`,
+    {
+      "id": transferData.id,
+      "public": transferData.public,
+      "name": transferData.name,
+      "species": transferData.species,
+      "age": parseInt(transferData.age),
+      "gender": transferData.gender,
+      "health": parseInt(transferData.health),
+      "attack": parseInt(transferData.attack),
+      "defense": parseInt(transferData.defense),
+      "speed": parseInt(transferData.speed),
+      "magic": parseInt(transferData.magic),
+      "ability": transferData.ability
+    })
+    .then((err, res) => {
+      console.log(err);
+    }).catch((err) => {
+      console.log(transferData);
+      console.log(err);
+    })
+  }
+
 removeCharacter = (id) => {
   id = parseInt(id)
   axios.delete(`${manipulateCharacterAPI}/${id}`,
@@ -194,6 +250,15 @@ postNewMonster = () => {
       view={this.state.view}
       handleCreate={this.handleCreate}
       postNewCharacter={this.postNewCharacter}
+      />
+      : null
+    }
+    {this.state.view.page === 'editCharacterForm'
+      ? <CharacterForm
+      view={this.state.view}
+      handleCreate={this.handleCreate}
+      updateCharacter={this.updateCharacter}
+      formInputsCharacter={this.state.formInputsCharacter}
       />
       : null
     }
