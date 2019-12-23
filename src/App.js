@@ -127,6 +127,8 @@ postNewCharacter = () => {
       "ability": transferData.ability
     })
     .then((err, res) => {
+      this.handleView('characterMain')
+      this.pullCharacters()
       console.log(err);
     }).catch((err) => {
       console.log(transferData);
@@ -152,6 +154,8 @@ updateCharacter = (id) => {
       "ability": transferData.ability
     })
     .then((err, res) => {
+      this.handleView('characterMain')
+      this.pullCharacters()
       console.log(err);
     }).catch((err) => {
       console.log(transferData);
