@@ -84,17 +84,17 @@ pullCharacters = () => {
 postNewCharacter = () => {
     axios.post(`${manipulateCharacterAPI}`,
     {
-      public: transferData.public,
-      name: transferData.name,
-      species: transferData.species,
-      age: transferData.age,
-      gender: transferData.gender,
-      health: transferData.health,
-      attack: transferData.attack,
-      defense: transferData.defense,
-      speed: transferData.speed,
-      magic: transferData.magic,
-      ability: transferData.ability
+      "public": transferData.public,
+      "name": transferData.name,
+      "species": transferData.species,
+      "age": parseInt(transferData.age),
+      "gender": transferData.gender,
+      "health": parseInt(transferData.health),
+      "attack": parseInt(transferData.attack),
+      "defense": parseInt(transferData.defense),
+      "speed": parseInt(transferData.speed),
+      "magic": parseInt(transferData.magic),
+      "ability": transferData.ability
     })
     .then((err, res) => {
       console.log(err);
