@@ -20,6 +20,10 @@ class Nav extends React.Component{
   render() {
     return (
       <div>
+        <li onClick={() => {this.props.handleView('createUser')}}
+        >Create Account</li>
+        <li onClick={() => {this.props.handleView('loginUser')}}
+        >Login</li>
         <h1>Navigation</h1>
         <ul>
           <li onClick={() => {this.props.handleView('main')}}

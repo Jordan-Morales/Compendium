@@ -19,20 +19,24 @@ class MonstersDisplay extends React.Component{
   render() {
     return (
       <div>
-      <h2 onClick={() => {this.props.handleView('addMonsterForm')}}
-      >MonsterForm</h2>
-      {this.props.monsters.map((monsters, index) => (
-      <article key={index}> hello, {monsters.name} who is {monsters.age} years old {monsters.species}.
-      <ul>
-        <li>edit character</li>
-        <li>delete character</li>
-      </ul>
-      </article>
-    ))};
-      </div>
-    )
+        <h2 onClick={() => {this.props.handleView('addMonsterForm')}}
+        >MonsterForm</h2>
+      {this.props.view.page === 'monsterMain'
+        ? this.props.monsters.map((monster, index) => (
+          <article className="card" key={index}>
+          Name: {monster.name}<br/>
+          Species: {monster.species}<br/>
+          <ul>
+            <li onClick={() => {this.props.handleView('editMonsterForm', monster)}}>edit monster</li>
+            <li onClick={() => {this.props.removeMonster(monster.id)}}>delete monster</li>
+          </ul>
+          </article>
+        ))
+        : null
+      }
+  </div>
+  )
   }
-
 
 }
 // =============================
