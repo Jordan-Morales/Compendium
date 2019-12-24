@@ -6,6 +6,8 @@ import MonstersDisplay from './component/monsters'
 import CharacterForm from './component/characterForm'
 import MonsterForm from './component/monsterForm'
 import Nav from './component/nav'
+import Auth from './component/auth'
+import Login from './component/login'
 
 
 let proxyURL = 'https://cors-anywhere.herokuapp.com/'
@@ -13,7 +15,7 @@ let charactersAPI = 'https://compendium-api.herokuapp.com/api/characters';
 let monsterAPI = 'https://compendium-api.herokuapp.com/api/monsters';
 let manipulateCharacterAPI = 'https://compendium-api.herokuapp.com/api/character';
 let manipulateMonsterAPI = 'https://compendium-api.herokuapp.com/api/monster';
-// let user = 'https://compendium-api.herokuapp.com/api/user';
+let userAPI = 'https://compendium-api.herokuapp.com/user';
 
 let transferData = {};
 
@@ -26,7 +28,11 @@ class App extends React.Component {
         pageTitle: 'Landing Page',
       },
       characters: [],
-      monsters: []
+      monsters: [],
+      user: {
+        data: {},
+        status: 'invalid login'
+      }
     }
   }
 
@@ -61,6 +67,12 @@ handleView = (view, data) => {
   switch (view) {
     case 'main':
       pageTitle = 'Landing Page'
+      break;
+    case 'createUser':
+      pageTitle = 'Create User'
+      break;
+    case 'loginUser':
+      pageTitle = 'Login User'
       break;
     case 'characterMain':
         pageTitle = 'Character Main'
@@ -123,6 +135,9 @@ handleView = (view, data) => {
 handleCreate = (createdData) => {
   transferData = createdData;
   console.log(createdData);
+}
+handleLogin = (data) => {
+  transferData = data;
 }
 
 pullCharacters = () => {
@@ -286,15 +301,38 @@ removeMonster = (id) => {
 }
 
 
-// pullUser = () => {
-//     axios.get(`${proxyURL}${user}`)
-//     .then(res => {
-//       const user = res.data;
-//       this.setState({
-//         user: user.data
-//       })
-//     })
-//   }
+loginUser = () => {
+    // console.log(user);
+
+    axios.post(`${proxyURL}${userAPI}Login`,
+    {
+      "username": transferData.username,
+      "password": transferData.password
+    })
+    .then(res => {
+      const user = res.data;
+      this.setState({
+        user: user
+      })
+    })
+  }
+
+createUser = () => {
+    axios.post(`${userAPI}`,
+    {
+      "name": transferData.name,
+      "username": transferData.username,
+      "email": transferData.email,
+      "password": transferData.password
+    })
+    .then((err, res) => {
+      this.handleView('home')
+      console.log(err);
+    }).catch((err) => {
+      console.log(transferData);
+      console.log(err);
+    })
+  }
   componentDidMount() {
     this.pullCharacters();
     this.pullMonster();
@@ -303,69 +341,85 @@ removeMonster = (id) => {
   render(){
     return(
       <div>
-      <Nav
-      handleView={this.handleView}
-      />
-    {this.state.view.page === 'main'
-      ?
-      <div className="homePage">
-      <h1>Welcome to my Masterful Compenium</h1>
+        {this.state.view.page === 'createUser'
+          ? <Auth
+          handleCreate={this.handleCreate}
+          createUser={this.createUser}/>
+          : null
+        }
+        {this.state.view.page === 'loginUser'
+          ? <Login
+          view={this.state.view}
+          handleLogin={this.handleLogin}
+          loginUser={this.loginUser}/>
+          : null
+        }
 
-      </div>
-      : null
-    }
-    {this.state.view.page === 'characterMain'
-      ? <CharactersDisplay
-      characters={this.state.characters}
-      view={this.state.view}
-      handleView={this.handleView}
-      removeCharacter={this.removeCharacter}
-      />
-      : null
-    }
-    {this.state.view.page === 'monsterMain'
-      ? <MonstersDisplay
-      monsters={this.state.monsters}
-      view={this.state.view}
-      handleView={this.handleView}
-      removeMonster={this.removeMonster}
-      />
-      : null
-    }
-    {this.state.view.page === 'addCharacterForm'
-      ? <CharacterForm
-      view={this.state.view}
-      handleCreate={this.handleCreate}
-      postNewCharacter={this.postNewCharacter}
-      />
-      : null
-    }
-    {this.state.view.page === 'editCharacterForm'
-      ? <CharacterForm
-      view={this.state.view}
-      handleCreate={this.handleCreate}
-      updateCharacter={this.updateCharacter}
-      formInputsCharacter={this.state.formInputsCharacter}
-      />
-      : null
-    }
-    {this.state.view.page === 'addMonsterForm'
-      ? <MonsterForm
-      view={this.state.view}
-      handleCreate={this.handleCreate}
-      postNewMonster={this.postNewMonster}
-      />
-      : null
-    }
-    {this.state.view.page === 'editMonsterForm'
-      ? <MonsterForm
-      view={this.state.view}
-      handleCreate={this.handleCreate}
-      updateMonster={this.updateMonster}
-      formInputsMonster={this.state.formInputsMonster}
-      />
-      : null
-    }
+        <Nav
+        handleView={this.handleView}
+        />
+
+        {this.state.view.page === 'main'
+          ?
+          <div className="homePage">
+          <h1>Welcome to my Masterful Compenium</h1>
+          <p>Please create an account and login to get access to the compendium</p>
+          </div>
+          : null
+        }
+
+        {(this.state.view.page === 'characterMain' && this.state.user.status !== "invalid login")
+          ? <CharactersDisplay
+          characters={this.state.characters}
+          view={this.state.view}
+          handleView={this.handleView}
+          removeCharacter={this.removeCharacter}
+          />
+          : null
+        }
+        {(this.state.view.page === 'monsterMain' && this.state.user.status !== "invalid login")
+          ? <MonstersDisplay
+          monsters={this.state.monsters}
+          view={this.state.view}
+          handleView={this.handleView}
+          removeMonster={this.removeMonster}
+          />
+          : null
+        }
+        {(this.state.view.page === 'addCharacterForm' && this.state.user.status !== "invalid login")
+          ? <CharacterForm
+          view={this.state.view}
+          handleCreate={this.handleCreate}
+          postNewCharacter={this.postNewCharacter}
+          />
+          : null
+        }
+        {(this.state.view.page === 'editCharacterForm' && this.state.user.status !== "invalid login")
+          ? <CharacterForm
+          view={this.state.view}
+          handleCreate={this.handleCreate}
+          updateCharacter={this.updateCharacter}
+          formInputsCharacter={this.state.formInputsCharacter}
+          />
+          : null
+        }
+        {(this.state.view.page === 'addMonsterForm' && this.state.user.status !== "invalid login")
+          ? <MonsterForm
+          view={this.state.view}
+          handleCreate={this.handleCreate}
+          postNewMonster={this.postNewMonster}
+          />
+          : null
+        }
+        {(this.state.view.page === 'editMonsterForm' && this.state.user.status !== "invalid login")
+          ? <MonsterForm
+          view={this.state.view}
+          handleCreate={this.handleCreate}
+          updateMonster={this.updateMonster}
+          formInputsMonster={this.state.formInputsMonster}
+          />
+          : null
+        }
       </div>
     )
   }
