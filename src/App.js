@@ -46,6 +46,18 @@ handleView = (view, data) => {
     magic: 0,
     ability: ''
   }
+  let formInputsMonster = {
+    id: null,
+    public: false,
+    name: '',
+    species: '',
+    health: 0,
+    attack: 0,
+    defense: 0,
+    speed: 0,
+    magic: 0,
+    ability: ''
+  }
   switch (view) {
     case 'main':
       pageTitle = 'Landing Page'
@@ -81,6 +93,18 @@ handleView = (view, data) => {
         break;
     case 'editMonsterForm':
         pageTitle = 'Edit Monster Form'
+        formInputsMonster = {
+          id: data.id,
+          public: data.public,
+          name: data.name,
+          species: data.species,
+          health: data.health,
+          attack: data.attack,
+          defense: data.defense,
+          speed: data.speed,
+          magic: data.magic,
+          ability: data.ability
+        }
         break;
     default:
       break;
@@ -90,7 +114,8 @@ handleView = (view, data) => {
       page: view,
       pageTitle: pageTitle
     },
-    formInputsCharacter: formInputsCharacter
+    formInputsCharacter: formInputsCharacter,
+    formInputsMonster: formInputsMonster
   })
 }
 
@@ -192,15 +217,73 @@ pullMonster = () => {
     })
   }
 
+// Working Monster Post
 postNewMonster = () => {
-    axios.post(`${proxyURL}${manipulateMonsterAPI}`)
-    .then(res => {
-      const characters = res.data;
-      this.setState({
-        characters: characters.data
-      })
+    axios.post(`${manipulateMonsterAPI}`,
+    {
+      "public": transferData.public,
+      "name": transferData.name,
+      "species": transferData.species,
+      "health": parseInt(transferData.health),
+      "attack": parseInt(transferData.attack),
+      "defense": parseInt(transferData.defense),
+      "speed": parseInt(transferData.speed),
+      "magic": parseInt(transferData.magic),
+      "ability": transferData.ability
+    })
+    .then((err, res) => {
+      this.handleView('monsterMain')
+      this.pullMonster()
+      console.log(err);
+    }).catch((err) => {
+      console.log(transferData);
+      console.log(err);
     })
   }
+
+updateMonster = (id) => {
+    id = parseInt(id)
+    axios.put(`${manipulateMonsterAPI}/${id}`,
+    {
+      "id": transferData.id,
+      "public": transferData.public,
+      "name": transferData.name,
+      "species": transferData.species,
+      "health": parseInt(transferData.health),
+      "attack": parseInt(transferData.attack),
+      "defense": parseInt(transferData.defense),
+      "speed": parseInt(transferData.speed),
+      "magic": parseInt(transferData.magic),
+      "ability": transferData.ability
+    })
+    .then((err, res) => {
+      this.handleView('monsterMain')
+      this.pullMonster()
+      console.log(err);
+    }).catch((err) => {
+      console.log(transferData);
+      console.log(err);
+    })
+  }
+
+removeMonster = (id) => {
+  id = parseInt(id)
+  axios.delete(`${manipulateMonsterAPI}/${id}`,
+  {
+    data: {
+      "id": {id}
+    }
+  })
+  .then((err, res) => {
+    this.setState(prevState => {
+        const monsters = prevState.monsters.filter(monster => monster.id !== id)
+        return { monsters }
+      })
+      console.log(err);
+  }).catch((err) => {
+    console.log(err);
+  })
+}
 
 
 // pullUser = () => {
@@ -215,7 +298,6 @@ postNewMonster = () => {
   componentDidMount() {
     this.pullCharacters();
     this.pullMonster();
-
   }
 
   render(){
@@ -246,6 +328,7 @@ postNewMonster = () => {
       monsters={this.state.monsters}
       view={this.state.view}
       handleView={this.handleView}
+      removeMonster={this.removeMonster}
       />
       : null
     }
@@ -269,6 +352,17 @@ postNewMonster = () => {
     {this.state.view.page === 'addMonsterForm'
       ? <MonsterForm
       view={this.state.view}
+      handleCreate={this.handleCreate}
+      postNewMonster={this.postNewMonster}
+      />
+      : null
+    }
+    {this.state.view.page === 'editMonsterForm'
+      ? <MonsterForm
+      view={this.state.view}
+      handleCreate={this.handleCreate}
+      updateMonster={this.updateMonster}
+      formInputsMonster={this.state.formInputsMonster}
       />
       : null
     }
