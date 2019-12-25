@@ -333,6 +333,14 @@ createUser = () => {
       console.log(err);
     })
   }
+
+logout = () => {
+  this.setState ({
+    user: {
+      status: 'invalid login'
+    }
+  })
+}
   componentDidMount() {
     this.pullCharacters();
     this.pullMonster();
@@ -350,20 +358,37 @@ createUser = () => {
         {this.state.view.page === 'loginUser'
           ? <Login
           view={this.state.view}
+          handleView={this.handleView}
           handleLogin={this.handleLogin}
           loginUser={this.loginUser}/>
           : null
         }
+        {this.state.user.status !== 'invalid login'
+        ? <div>
+          <button onClick={this.logout}>
+          LogOut
+          </button>
+          </div>
+        : null
+      }
 
         <Nav
         handleView={this.handleView}
         />
 
-        {this.state.view.page === 'main'
+        {(this.state.view.page === 'main' && this.state.user.status === "invalid login")
           ?
           <div className="homePage">
           <h1>Welcome to my Masterful Compenium</h1>
           <p>Please create an account and login to get access to the compendium</p>
+          </div>
+          : null
+        }
+        {(this.state.view.page === 'main' && this.state.user.status !== "invalid login")
+          ?
+          <div className="homePage">
+          <h1>Welcome to my Masterful Compenium</h1>
+          <p>Welcome USER, please create your character or monster by using available input forms.</p>
           </div>
           : null
         }
@@ -425,7 +450,5 @@ createUser = () => {
   }
 
 }
-
-
 
 export default App;

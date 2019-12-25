@@ -36,6 +36,7 @@ class Login extends React.Component{
     // if (this.props.view.page === 'createUser') {
     this.props.loginUser(this.props.handleLogin(this.state));
     // }
+    this.props.handleView('main')
   }
 
   // ==============
