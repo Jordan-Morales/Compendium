@@ -20,20 +20,25 @@ class Nav extends React.Component{
   render() {
     return (
       <div>
-        <li onClick={() => {this.props.handleView('createUser')}}
+        <div className="login nav-wrapper">
+
+        <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('createUser')}}
         >Create Account</li>
-        <li onClick={() => {this.props.handleView('loginUser')}}
+        <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('loginUser')}}
         >Login</li>
+        </div>
+        <div className="nav-wrapper">
         <h1>Navigation</h1>
         <ul>
-          <li onClick={() => {this.props.handleView('main')}}
+          <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('main')}}
           >Home</li>
-          <li onClick={() => {this.props.handleView('characterMain')}}
+          <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('characterMain')}}
           >Characters</li>
-          <li onClick={() => {this.props.handleView('monsterMain')}}
+          <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('monsterMain')}}
           >Monsters</li>
 
         </ul>
+      </div>
       </div>
     )
   }

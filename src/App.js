@@ -348,33 +348,38 @@ logout = () => {
 
   render(){
     return(
-      <div>
-        {this.state.view.page === 'createUser'
-          ? <Auth
-          handleCreate={this.handleCreate}
-          createUser={this.createUser}/>
-          : null
-        }
-        {this.state.view.page === 'loginUser'
-          ? <Login
-          view={this.state.view}
-          handleView={this.handleView}
-          handleLogin={this.handleLogin}
-          loginUser={this.loginUser}/>
-          : null
-        }
-        {this.state.user.status !== 'invalid login'
-        ? <div>
-          <button onClick={this.logout}>
-          LogOut
-          </button>
-          </div>
-        : null
-      }
+      <div className="book">
 
-        <Nav
-        handleView={this.handleView}
-        />
+              {this.state.view.page === 'createUser'
+                ? <Auth
+                handleCreate={this.handleCreate}
+                createUser={this.createUser}/>
+                : null
+              }
+              {this.state.view.page === 'loginUser'
+                ? <Login
+                view={this.state.view}
+                handleView={this.handleView}
+                handleLogin={this.handleLogin}
+                loginUser={this.loginUser}/>
+                : null
+              }
+              {this.state.user.status !== 'invalid login'
+              ? <div>
+                <button onClick={this.logout}>
+                LogOut
+                </button>
+                </div>
+              : null
+            }
+
+            <Nav
+            handleView={this.handleView}
+            />
+
+        <div className="page">
+
+        <div className="mainSection">
 
         {(this.state.view.page === 'main' && this.state.user.status === "invalid login")
           ?
@@ -446,6 +451,9 @@ logout = () => {
           : null
         }
       </div>
+      </div>
+      </div>
+
     )
   }
 
