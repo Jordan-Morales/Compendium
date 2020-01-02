@@ -6,6 +6,7 @@ import MonstersDisplay from './component/monsters'
 import CharacterForm from './component/characterForm'
 import MonsterForm from './component/monsterForm'
 import Nav from './component/nav'
+import LoginNav from './component/loginnav'
 import Auth from './component/auth'
 import Login from './component/login'
 
@@ -373,7 +374,7 @@ logout = () => {
               : null
             }
 
-            <Nav
+            <LoginNav
             handleView={this.handleView}
             />
 
@@ -451,7 +452,13 @@ logout = () => {
           : null
         }
       </div>
+
       </div>
+
+        <Nav
+        handleView={this.handleView}
+        />
+
       </div>
 
     )
