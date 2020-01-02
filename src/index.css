@@ -17,44 +17,34 @@ code {
   width: 100vw;
   display: flex;
   flex-wrap: wrap;
+  background-color: grey;
 }
 
 .page {
   height: 80vh;
-  width: 70vw;
-  margin-right: 160px; /* Same as the width of the sidebar */
+  width: 80%;
   padding: 0px 10px;
+  background-color: brown;
 }
 .nav-wrapper {
-  height: 10vh;
-  width: 155px;
+  width: 20%;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  flex-direction: row;
 }
 
 .loginnav-wrapper {
   height: 10vh;
-  width: 155px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  flex-direction: row;
-
 }
-/* The sidebar menu */
-/* .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-} */
+
+footer {
+  width: 100%;
+  text-align: center;
+}
 
 li {
   list-style-type: none;

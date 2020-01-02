@@ -458,7 +458,9 @@ logout = () => {
         <Nav
         handleView={this.handleView}
         />
-
+        <footer>
+        This is the footer.
+        </footer>
       </div>
 
     )
