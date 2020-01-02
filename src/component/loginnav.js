@@ -18,14 +18,23 @@ class LoginNav extends React.Component{
 //// ==============
 
   render() {
+
     return (
       <div className="login loginnav-wrapper">
-
+      {this.props.user.status !== 'invalid login'
+      ? <div>
+        <button className="waves-effect waves-light btn" onClick={this.logout}>
+        LogOut
+        </button>
+        </div>
+      : null
+    }
       <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('createUser')}}
       >Create Account</li>
       <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('loginUser')}}
       >Login</li>
       </div>
+
     )
   }
 

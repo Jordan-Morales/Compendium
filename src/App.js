@@ -365,17 +365,10 @@ logout = () => {
                 loginUser={this.loginUser}/>
                 : null
               }
-              {this.state.user.status !== 'invalid login'
-              ? <div>
-                <button onClick={this.logout}>
-                LogOut
-                </button>
-                </div>
-              : null
-            }
 
             <LoginNav
             handleView={this.handleView}
+            user={this.state.user}
             />
 
         <div className="page">

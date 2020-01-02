@@ -19,8 +19,8 @@ class CharactersDisplay extends React.Component{
   render() {
     return (
       <div>
-        <h2 onClick={() => {this.props.handleView('addCharacterForm')}}
-        >CharacterForm</h2>
+        <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('addCharacterForm')}}
+        >CharacterForm</button>
       {this.props.view.page === 'characterMain'
         ? this.props.characters.map((character, index) => (
           <article className="card" key={index}>

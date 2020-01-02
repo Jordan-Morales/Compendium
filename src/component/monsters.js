@@ -19,8 +19,8 @@ class MonstersDisplay extends React.Component{
   render() {
     return (
       <div>
-        <h2 onClick={() => {this.props.handleView('addMonsterForm')}}
-        >MonsterForm</h2>
+        <button className="waves-effect waves-light btn"  onClick={() => {this.props.handleView('addMonsterForm')}}
+        >MonsterForm</button>
       {this.props.view.page === 'monsterMain'
         ? this.props.monsters.map((monster, index) => (
           <article className="card" key={index}>

@@ -22,9 +22,9 @@ class Nav extends React.Component{
         <div className="nav-wrapper">
         <ul>
           <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('main')}}
-          >Home</li>
+          >Home</li><br/>
           <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('characterMain')}}
-          >Characters</li>
+          >Characters</li><br/>
           <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('monsterMain')}}
           >Monsters</li>
 
