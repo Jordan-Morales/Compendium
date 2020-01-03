@@ -18,9 +18,9 @@ class CharactersDisplay extends React.Component{
 
   render() {
     return (
-      <div className="innerPage">
+      <div className="innerPage verticalFlex">
         <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('addCharacterForm')}}
-        >CharacterForm</button>
+        >Create a New Charater</button>
       {this.props.view.page === 'characterMain'
         ? this.props.characters.map((character, index) => (
           <article className="card" key={index}>
@@ -28,8 +28,8 @@ class CharactersDisplay extends React.Component{
           Age: {character.age}<br/>
           Species: {character.species}<br/>
           <ul>
-            <li onClick={() => {this.props.handleView('editCharacterForm', character)}}>edit character</li>
-            <li onClick={() => {this.props.removeCharacter(character.id)}}>delete character</li>
+            <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('editCharacterForm', character)}}>edit character</li>
+            <li className="waves-effect waves-light btn" onClick={() => {this.props.removeCharacter(character.id)}}>delete character</li>
           </ul>
           </article>
         ))
