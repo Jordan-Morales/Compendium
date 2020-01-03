@@ -24,6 +24,7 @@ code {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  align-content:  flex-start;
   /* flex-wrap: nowrap; */
   background-color: grey;
 }
@@ -32,12 +33,30 @@ code {
   height: 80%;
   min-height: 80vh;
   width: 85%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 5px solid black;
+  border-left: 0;
   background-color: brown;
+  z-index: 1;
 }
-.nav-wrapper {
-  height: 10%;
+
+.nav {
+  width: 4%;
+  /* height: 50%; */
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+.nav-wrapper {
+  /* height: 10%; */
+  align-items: baseline;
+  justify-content: center;
+  z-index: 0;
+  /* width: 100%; */
 }
 
 .loginnav-wrapper {

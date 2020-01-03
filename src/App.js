@@ -385,6 +385,7 @@ logout = () => {
         }
         {(this.state.view.page === 'main' && this.state.user.status !== "invalid login")
           ?
+          
           <div className="homePage">
           <h1>Welcome to my Masterful Compenium</h1>
           <p>Welcome USER, please create your character or monster by using available input forms.</p>
