@@ -81,7 +81,7 @@ class CharacterForm extends React.Component{
   // ==============
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="innerPage" onSubmit={this.handleSubmit}>
         <label>
           name
           <input type="text" placeholder="name" id="name" value={this.state.name} onChange={this.handleChange}/>

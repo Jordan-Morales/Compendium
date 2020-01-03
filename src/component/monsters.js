@@ -18,7 +18,7 @@ class MonstersDisplay extends React.Component{
 
   render() {
     return (
-      <div>
+      <div className="innerPage">
         <button className="waves-effect waves-light btn"  onClick={() => {this.props.handleView('addMonsterForm')}}
         >MonsterForm</button>
       {this.props.view.page === 'monsterMain'
