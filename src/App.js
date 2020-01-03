@@ -9,6 +9,7 @@ import Nav from './component/nav'
 import LoginNav from './component/loginnav'
 import Auth from './component/auth'
 import Login from './component/login'
+// import ErrorBoundary from './component/errorBoundary'
 
 
 let proxyURL = 'https://cors-anywhere.herokuapp.com/'
@@ -369,6 +370,7 @@ logout = () => {
             <LoginNav
             handleView={this.handleView}
             user={this.state.user}
+            logout={this.logout}
             />
 
         <div className="page">
@@ -378,22 +380,37 @@ logout = () => {
         {(this.state.view.page === 'main' && this.state.user.status === "invalid login")
           ?
           <div className="homePage">
-          <h1>Welcome to my Masterful Compenium</h1>
+          <h1>Masterful Compenium</h1>
           <p>Please create an account and login to get access to the compendium</p>
           </div>
           : null
         }
-        {(this.state.view.page === 'main' && this.state.user.status !== "invalid login")
+        {(this.state.view.page === 'main' && this.state.user.status === "login failed")
+          ?
+          <div className="homePage">
+          <h1>Masterful Compenium</h1>
+          <span className="error">something went wrong</span>
+          </div>
+          : null
+        }
+        {(this.state.view.page === 'main' && this.state.user.status === "valid login")
           ?
 
           <div className="homePage">
-          <h1>Welcome to my Masterful Compenium</h1>
-          <p>Welcome <span className="username">{this.state.user.data.username}</span>, please create your character or monster by using available input forms.</p>
+          <h1>Masterful Compenium</h1>
+          <p>Welcome
+          {(this.state.user.data === undefined) ? <span>somethi9ng went wrong</span> :
+                  <span className="username">
+          {this.state.user.data.username}
+          </span>}
+          , please create your character or monster by using available input forms.</p>
           </div>
           : null
         }
 
-        {(this.state.view.page === 'characterMain' && this.state.user.status !== "invalid login")
+
+
+        {(this.state.view.page === 'characterMain' && this.state.user.status === "valid login")
           ? <CharactersDisplay
           characters={this.state.characters}
           view={this.state.view}
@@ -402,7 +419,7 @@ logout = () => {
           />
           : null
         }
-        {(this.state.view.page === 'monsterMain' && this.state.user.status !== "invalid login")
+        {(this.state.view.page === 'monsterMain' && this.state.user.status === "valid login")
           ? <MonstersDisplay
           monsters={this.state.monsters}
           view={this.state.view}
@@ -411,7 +428,7 @@ logout = () => {
           />
           : null
         }
-        {(this.state.view.page === 'addCharacterForm' && this.state.user.status !== "invalid login")
+        {(this.state.view.page === 'addCharacterForm' && this.state.user.status === "valid login")
           ? <CharacterForm
           view={this.state.view}
           handleCreate={this.handleCreate}
@@ -419,7 +436,7 @@ logout = () => {
           />
           : null
         }
-        {(this.state.view.page === 'editCharacterForm' && this.state.user.status !== "invalid login")
+        {(this.state.view.page === 'editCharacterForm' && this.state.user.status === "valid login")
           ? <CharacterForm
           view={this.state.view}
           handleCreate={this.handleCreate}
@@ -428,7 +445,7 @@ logout = () => {
           />
           : null
         }
-        {(this.state.view.page === 'addMonsterForm' && this.state.user.status !== "invalid login")
+        {(this.state.view.page === 'addMonsterForm' && this.state.user.status === "valid login")
           ? <MonsterForm
           view={this.state.view}
           handleCreate={this.handleCreate}
@@ -436,7 +453,7 @@ logout = () => {
           />
           : null
         }
-        {(this.state.view.page === 'editMonsterForm' && this.state.user.status !== "invalid login")
+        {(this.state.view.page === 'editMonsterForm' && this.state.user.status === "valid login")
           ? <MonsterForm
           view={this.state.view}
           handleCreate={this.handleCreate}
