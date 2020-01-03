@@ -19,21 +19,15 @@ class Nav extends React.Component{
 
   render() {
     return (
-      <div>
-        <li onClick={() => {this.props.handleView('createUser')}}
-        >Create Account</li>
-        <li onClick={() => {this.props.handleView('loginUser')}}
-        >Login</li>
-        <h1>Navigation</h1>
-        <ul>
-          <li onClick={() => {this.props.handleView('main')}}
-          >Home</li>
-          <li onClick={() => {this.props.handleView('characterMain')}}
-          >Characters</li>
-          <li onClick={() => {this.props.handleView('monsterMain')}}
-          >Monsters</li>
+        <div className="nav-wrapper rotated">
 
-        </ul>
+          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('main')}}
+          >Home</button>
+          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('characterMain')}}
+          >Characters</button>
+          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('monsterMain')}}
+          >Monsters</button>
+
       </div>
     )
   }

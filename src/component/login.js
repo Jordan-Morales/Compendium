@@ -36,6 +36,7 @@ class Login extends React.Component{
     // if (this.props.view.page === 'createUser') {
     this.props.loginUser(this.props.handleLogin(this.state));
     // }
+    this.props.handleView('main')
   }
 
   // ==============
@@ -43,7 +44,8 @@ class Login extends React.Component{
   // ==============
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div className="row">
+      <form className="col 6" onSubmit={this.handleSubmit}>
         <label>
           username
           <input type="text" placeholder="username" id="username" value={this.state.username} onChange={this.handleChange}/>
@@ -53,8 +55,9 @@ class Login extends React.Component{
           <input type="password" placeholder="password" id="password" value={this.state.password} onChange={this.handleChange} />
         </label><br/>
 
-        <input type="submit" value="Login"/>
+        <button className="waves-effect waves-light btn" type="submit" value="Login">Login</button>
       </form>
+      </div>
     )
   }
 

@@ -45,7 +45,8 @@ class Auth extends React.Component{
   // ==============
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div className="row">
+      <form className="col 6" onSubmit={this.handleSubmit}>
         <label>
           name
           <input type="text" placeholder="name" id="name" value={this.state.name} onChange={this.handleChange}/>
@@ -63,8 +64,9 @@ class Auth extends React.Component{
           <input type="password" placeholder="password" id="password" value={this.state.password} onChange={this.handleChange} />
         </label><br/>
 
-        <input type="submit" value="Create User"/>
+        <button className="waves-effect waves-light btn" type="submit" value="Create User">Create User</button>
       </form>
+      </div>
     )
   }
 

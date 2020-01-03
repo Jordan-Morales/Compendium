@@ -6,6 +6,7 @@ import MonstersDisplay from './component/monsters'
 import CharacterForm from './component/characterForm'
 import MonsterForm from './component/monsterForm'
 import Nav from './component/nav'
+import LoginNav from './component/loginnav'
 import Auth from './component/auth'
 import Login from './component/login'
 
@@ -333,6 +334,14 @@ createUser = () => {
       console.log(err);
     })
   }
+
+logout = () => {
+  this.setState ({
+    user: {
+      status: 'invalid login'
+    }
+  })
+}
   componentDidMount() {
     this.pullCharacters();
     this.pullMonster();
@@ -340,30 +349,45 @@ createUser = () => {
 
   render(){
     return(
-      <div>
-        {this.state.view.page === 'createUser'
-          ? <Auth
-          handleCreate={this.handleCreate}
-          createUser={this.createUser}/>
-          : null
-        }
-        {this.state.view.page === 'loginUser'
-          ? <Login
-          view={this.state.view}
-          handleLogin={this.handleLogin}
-          loginUser={this.loginUser}/>
-          : null
-        }
+      <div className="book">
 
-        <Nav
-        handleView={this.handleView}
-        />
+              {this.state.view.page === 'createUser'
+                ? <Auth
+                handleCreate={this.handleCreate}
+                createUser={this.createUser}/>
+                : null
+              }
+              {this.state.view.page === 'loginUser'
+                ? <Login
+                view={this.state.view}
+                handleView={this.handleView}
+                handleLogin={this.handleLogin}
+                loginUser={this.loginUser}/>
+                : null
+              }
 
-        {this.state.view.page === 'main'
+            <LoginNav
+            handleView={this.handleView}
+            user={this.state.user}
+            />
+
+        <div className="page">
+
+        <div className="mainSection">
+
+        {(this.state.view.page === 'main' && this.state.user.status === "invalid login")
           ?
           <div className="homePage">
           <h1>Welcome to my Masterful Compenium</h1>
           <p>Please create an account and login to get access to the compendium</p>
+          </div>
+          : null
+        }
+        {(this.state.view.page === 'main' && this.state.user.status !== "invalid login")
+          ?
+          <div className="homePage">
+          <h1>Welcome to my Masterful Compenium</h1>
+          <p>Welcome USER, please create your character or monster by using available input forms.</p>
           </div>
           : null
         }
@@ -421,11 +445,20 @@ createUser = () => {
           : null
         }
       </div>
+
+      </div>
+
+        <Nav
+        handleView={this.handleView}
+        />
+        <footer>
+        This is the footer.
+        </footer>
+      </div>
+
     )
   }
 
 }
-
-
 
 export default App;
