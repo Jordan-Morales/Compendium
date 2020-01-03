@@ -122,3 +122,22 @@ p {
   font-size: 30px;
   text-shadow: 1px 1px red;
 }
+
+.form > label {
+  color: black;
+}
+input {
+  text-align: center;
+}
+.innerPage {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 50%;
+}
+
+.verticalFlex {
+  flex-direction: column;
+}

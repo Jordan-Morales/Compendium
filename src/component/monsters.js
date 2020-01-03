@@ -18,17 +18,17 @@ class MonstersDisplay extends React.Component{
 
   render() {
     return (
-      <div className="innerPage">
+      <div className="innerPage verticalFlex">
         <button className="waves-effect waves-light btn"  onClick={() => {this.props.handleView('addMonsterForm')}}
-        >MonsterForm</button>
+        >Create a New Monster</button>
       {this.props.view.page === 'monsterMain'
         ? this.props.monsters.map((monster, index) => (
           <article className="card" key={index}>
           Name: {monster.name}<br/>
           Species: {monster.species}<br/>
           <ul>
-            <li onClick={() => {this.props.handleView('editMonsterForm', monster)}}>edit monster</li>
-            <li onClick={() => {this.props.removeMonster(monster.id)}}>delete monster</li>
+            <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('editMonsterForm', monster)}}>edit monster</li>
+            <li className="waves-effect waves-light btn" onClick={() => {this.props.removeMonster(monster.id)}}>delete monster</li>
           </ul>
           </article>
         ))
