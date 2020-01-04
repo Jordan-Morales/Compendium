@@ -44,7 +44,7 @@ code {
 }
 
 .nav {
-  width: 4%;
+  width: 33px;
   /* background-color: white; */
 
   display: flex;
@@ -68,7 +68,9 @@ code {
 
 .loginnav-wrapper {
   width: 80%;
+  display: flex;
   align-content: center;
+  justify-content: center;
 }
 .username {
   font-size: 5vh;
