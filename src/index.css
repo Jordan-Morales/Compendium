@@ -101,6 +101,9 @@ li {
 .innerPage {
   height: 100%;
   background-color: rgba(207, 199, 189, 0.9);
+  background-image: url(https://res.cloudinary.com/htc0pkenr/image/upload/v1578178407/tdeqxg9bjylldrhniiqv.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 80vh;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
