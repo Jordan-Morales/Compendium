@@ -27,9 +27,16 @@ class CharactersDisplay extends React.Component{
           Name: {character.name}<br/>
           Age: {character.age}<br/>
           Species: {character.species}<br/>
+          Gender: {character.gender}<br/>
+          Health: {character.health}<br/>
+          Attack: {character.attack}<br/>
+          Defense: {character.defense}<br/>
+          Speed: {character.speed}<br/>
+          Magic: {character.magic}<br/>
+          Ability: {character.ability}<br/>
           <ul>
             <li className="waves-effect waves-light btn" onClick={() => {this.props.handleView('editCharacterForm', character)}}>edit character</li>
-            <li className="waves-effect waves-light btn" onClick={() => {this.props.removeCharacter(character.id)}}>delete character</li>
+            <li className="waves-effect waves-light btn btn-delete" onClick={() => {this.props.removeCharacter(character.id)}}>delete character</li>
           </ul>
           </article>
         ))

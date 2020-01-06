@@ -7,6 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Raleway', sans-serif;
 }
+
+:root {
+  --form-bg-color: rgba(75, 75, 75, 0.35);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -73,6 +78,10 @@ h1 {
   align-content: center;
   justify-content: center;
 }
+.loginnav-wrapper > button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .username {
   font-size: 5vh;
   text-decoration: underline;
@@ -88,8 +97,17 @@ li {
 }
 
 .btn {
-  background-color: rgb(8, 5, 26);
+  background-color: rgb(0, 9, 85);
   color: rgb(167, 200, 223);
+  border-radius: 10px;
+}
+
+.btn-btm {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.btn-delete {
+  background-color: rgb(70, 1, 1);
 }
 
 .innerPage {
@@ -132,7 +150,7 @@ p {
 }
 
 .formLight > label {
-  color: white;
+  color: rgb(215, 217, 255);
   font-size: 2.4vw;
 }
 
@@ -142,12 +160,11 @@ p {
 
 input {
   text-align: center;
-  background-color: black;
 }
 
 .innerPage {
   display: flex;
-  justify-content: center;
+  align-items: center;
 }
 
 form {
@@ -156,4 +173,93 @@ form {
 
 .verticalFlex {
   flex-direction: column;
+}
+
+.card {
+  width: 50%;
+  background-color: rgb(235, 221, 202);
+}
+
+.icon {
+  color: black;
+}
+
+
+input#username {
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#password{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#email{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#name{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#species{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#age{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#gender{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#health{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#attack{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#defense{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#speed{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#magic{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
+}
+input#ability{
+  color: white;
+  font-size: 2.8vw;
+  background-color: var(--form-bg-color);
+  border-radius: 15px;
 }

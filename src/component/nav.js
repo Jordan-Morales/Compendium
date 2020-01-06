@@ -21,15 +21,15 @@ class Nav extends React.Component{
     return (
       <div className="nav">
         <div className="nav-wrapper rotated">
-          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('main')}}
+          <button className="waves-effect waves-light btn btn-btm" onClick={() => {this.props.handleView('main')}}
           >Home</button>
           </div>
         <div className="nav-wrapper rotated">
-          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('characterMain')}}
+          <button className="waves-effect waves-light btn btn-btm" onClick={() => {this.props.handleView('characterMain')}}
           >Characters</button>
           </div>
         <div className="nav-wrapper rotated">
-          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('monsterMain')}}
+          <button className="waves-effect waves-light btn btn-btm" onClick={() => {this.props.handleView('monsterMain')}}
           >Monsters</button>
         </div>
       </div>

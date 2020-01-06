@@ -472,8 +472,8 @@ logout = () => {
         handleView={this.handleView}
         />
         <footer>
-        <ion-icon name="logo-github"></ion-icon>
-        <ion-icon name="logo-linkedin"></ion-icon>
+        <a className="icon" href="https://github.com/Jordan-Morales/"><ion-icon name="logo-github" size="large"></ion-icon></a>
+        <a className="icon" href="https://www.linkedin.com/in/jordanmorales/"><ion-icon name="logo-linkedin" size="large"></ion-icon></a>
         </footer>
       </div>
 

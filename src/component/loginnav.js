@@ -23,7 +23,7 @@ class LoginNav extends React.Component{
       <div className="login loginnav-wrapper">
       {this.props.user.status === 'valid login'
       ?
-        <button className="waves-effect waves-light btn" onClick={this.props.logout}>
+        <button className="waves-effect waves-light btn btn-btm" onClick={this.props.logout}>
         LogOut
         </button>
 
@@ -32,10 +32,10 @@ class LoginNav extends React.Component{
     {this.props.user.status === 'valid login'
     ? null
     :
-      <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('createUser')}}
+      <button className="waves-effect waves-light btn btn-btm" onClick={() => {this.props.handleView('createUser')}}
       >Create Account</button>
     }
-      <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('loginUser')}}
+      <button className="waves-effect waves-light btn btn-btm" onClick={() => {this.props.handleView('loginUser')}}
       >Login</button>
       </div>
 
