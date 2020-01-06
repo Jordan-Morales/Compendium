@@ -352,21 +352,6 @@ logout = () => {
     return(
       <div className="book">
 
-              {this.state.view.page === 'createUser'
-                ? <Auth
-                handleCreate={this.handleCreate}
-                createUser={this.createUser}/>
-                : null
-              }
-              {this.state.view.page === 'loginUser'
-                ? <Login
-                view={this.state.view}
-                handleView={this.handleView}
-                handleLogin={this.handleLogin}
-                loginUser={this.loginUser}/>
-                : null
-              }
-
             <LoginNav
             handleView={this.handleView}
             user={this.state.user}
@@ -375,7 +360,24 @@ logout = () => {
 
         <div className="page">
 
+        {this.state.view.page === 'createUser'
+          ? <Auth
+          handleCreate={this.handleCreate}
+          createUser={this.createUser}/>
+          : null
+        }
+        {this.state.view.page === 'loginUser'
+          ? <Login
+          view={this.state.view}
+          handleView={this.handleView}
+          handleLogin={this.handleLogin}
+          loginUser={this.loginUser}/>
+          : null
+        }
+
         <div className="mainSection">
+
+
 
         {(this.state.view.page === 'main' && this.state.user.status === "invalid login")
           ?
@@ -470,7 +472,8 @@ logout = () => {
         handleView={this.handleView}
         />
         <footer>
-        This is the footer.
+        <ion-icon name="logo-github"></ion-icon>
+        <ion-icon name="logo-linkedin"></ion-icon>
         </footer>
       </div>
 

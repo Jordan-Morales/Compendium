@@ -45,8 +45,8 @@ class Auth extends React.Component{
   // ==============
   render () {
     return (
-      <div className="row">
-      <form className="col 6" onSubmit={this.handleSubmit}>
+      <div className="row center">
+      <form className="col 6 formLight" onSubmit={this.handleSubmit}>
         <label>
           name
           <input type="text" placeholder="name" id="name" value={this.state.name} onChange={this.handleChange}/>

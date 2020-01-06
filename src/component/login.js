@@ -44,8 +44,8 @@ class Login extends React.Component{
   // ==============
   render () {
     return (
-      <div className="row">
-      <form className="col 6" onSubmit={this.handleSubmit}>
+      <div className="row center">
+      <form className="col 6 formLight" onSubmit={this.handleSubmit}>
         <label>
           username
           <input type="text" placeholder="username" id="username" value={this.state.username} onChange={this.handleChange}/>
