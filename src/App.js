@@ -472,7 +472,8 @@ logout = () => {
         handleView={this.handleView}
         />
         <footer>
-        This is the footer.
+        <ion-icon name="logo-github"></ion-icon>
+        <ion-icon name="logo-linkedin"></ion-icon>
         </footer>
       </div>
 
