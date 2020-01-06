@@ -76,7 +76,7 @@ class MonsterForm extends React.Component{
   // ==============
   render () {
     return (
-      <div className="innerPage">
+      <div className="innerPage center">
       <form className="form" onSubmit={this.handleSubmit}>
         <label>
           name
