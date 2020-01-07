@@ -18,7 +18,7 @@ class MonsterForm extends React.Component{
     super()
     this.state = {
       id: null,
-      public: false,
+      public: this.user,
       name: '',
       species: '',
       health: 0,
@@ -59,7 +59,7 @@ class MonsterForm extends React.Component{
     if (this.props.formInputsMonster) {
       this.setState({
         id: this.props.formInputsMonster.id,
-        public: this.props.formInputsMonster.public,
+        public: this.state.public,
         name: this.props.formInputsMonster.name,
         species: this.props.formInputsMonster.species,
         health: this.props.formInputsMonster.health,

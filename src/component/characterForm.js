@@ -19,7 +19,7 @@ class CharacterForm extends React.Component{
     super()
     this.state = {
       id: null,
-      public: false,
+      public: '',
       name: '',
       species: '',
       age: 0,
