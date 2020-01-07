@@ -23,6 +23,8 @@ class MonstersDisplay extends React.Component{
         >Create a New Monster</button>
       {this.props.view.page === 'monsterMain'
         ? this.props.monsters.map((monster, index) => (
+          monster.public === this.props.user.data.username
+            ? (
           <article className="card" key={index}>
           Name: {monster.name}<br/>
           Species: {monster.species}<br/>
@@ -37,6 +39,8 @@ class MonstersDisplay extends React.Component{
             <li className="waves-effect waves-light btn btn-delete" onClick={() => {this.props.removeMonster(monster.id)}}>delete monster</li>
           </ul>
           </article>
+          )
+          : null
         ))
         : null
       }

@@ -42,7 +42,7 @@ handleView = (view, data) => {
   let pageTitle = '';
   let formInputsCharacter = {
     id: null,
-    public: false,
+    public: '',
     name: '',
     species: '',
     age: 0,
@@ -56,7 +56,7 @@ handleView = (view, data) => {
   }
   let formInputsMonster = {
     id: null,
-    public: false,
+    public: '',
     name: '',
     species: '',
     health: 0,
@@ -156,7 +156,7 @@ pullCharacters = () => {
 postNewCharacter = () => {
     axios.post(`${manipulateCharacterAPI}`,
     {
-      "public": transferData.public,
+      "public": this.state.user.data.username,
       "name": transferData.name,
       "species": transferData.species,
       "age": parseInt(transferData.age),
@@ -238,7 +238,7 @@ pullMonster = () => {
 postNewMonster = () => {
     axios.post(`${manipulateMonsterAPI}`,
     {
-      "public": transferData.public,
+      "public": this.state.user.data.username,
       "name": transferData.name,
       "species": transferData.species,
       "health": parseInt(transferData.health),
@@ -418,6 +418,7 @@ logout = () => {
           view={this.state.view}
           handleView={this.handleView}
           removeCharacter={this.removeCharacter}
+          user={this.state.user}
           />
           : null
         }
@@ -427,6 +428,7 @@ logout = () => {
           view={this.state.view}
           handleView={this.handleView}
           removeMonster={this.removeMonster}
+          user={this.state.user}
           />
           : null
         }
