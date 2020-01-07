@@ -26,7 +26,6 @@ class MonstersDisplay extends React.Component{
           <article className="card" key={index}>
           Name: {monster.name}<br/>
           Species: {monster.species}<br/>
-          Gender: {monster.gender}<br/>
           Health: {monster.health}<br/>
           Attack: {monster.attack}<br/>
           Defense: {monster.defense}<br/>
