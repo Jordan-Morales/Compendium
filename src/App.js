@@ -305,7 +305,6 @@ removeMonster = (id) => {
 
 loginUser = () => {
     // console.log(user);
-
     axios.post(`${proxyURL}${userAPI}Login`,
     {
       "username": transferData.username,
@@ -328,7 +327,7 @@ createUser = () => {
       "password": transferData.password
     })
     .then((err, res) => {
-      this.handleView('home')
+      this.handleView('main')
       console.log(err);
     }).catch((err) => {
       console.log(transferData);
