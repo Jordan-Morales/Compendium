@@ -327,6 +327,7 @@ createUser = () => {
       "password": transferData.password
     })
     .then((err, res) => {
+      this.loginUser(transferData);
       this.handleView('main')
       console.log(err);
     }).catch((err) => {
