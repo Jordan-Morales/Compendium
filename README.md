@@ -33,11 +33,10 @@ Form Page
 
 ![React Flow](https://res.cloudinary.com/htc0pkenr/image/upload/v1578445796/ljoghiqvc7oucqp2rkix.jpg)
 
-##Feature Walkthroughs
+## Feature Walkthroughs
 
->
 
-##Unsolved Problems / Challenges
+## Unsolved Problems / Challenges
 - Allow a user to share their sheet to a public page.
 
 
