@@ -24,10 +24,10 @@ Form Page
 - User is able to create, edit, or delete a character or monster sheet.
 
 ## Technology Used
+- NERDS Stack
 - React
-- PHP
-- SQL
-- HTML+CSS(Materialize CSS frameworks)
+- PostgreSQL
+- HTML + CSS (Materialize CSS frameworks)
 
 ## React Flow
 
