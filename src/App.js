@@ -263,7 +263,7 @@ updateMonster = (id) => {
     axios.put(`${manipulateMonsterAPI}/${id}`,
     {
       "id": transferData.id,
-      "public": transferData.public,
+      "public": this.state.user.data.username,
       "name": transferData.name,
       "species": transferData.species,
       "health": parseInt(transferData.health),
