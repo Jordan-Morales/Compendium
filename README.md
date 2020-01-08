@@ -6,17 +6,17 @@
 
 ## Wireframes
 
-![Landing Page](https://res.cloudinary.com/htc0pkenr/image/upload/v1578445797/kcw5rjnz29awou0chama.png)
+![Landing Page](https://res.cloudinary.com/htc0pkenr/image/upload/c_scale,w_450/v1578445797/kcw5rjnz29awou0chama.png)
 Landing Page
 
-![Sheet View Page](https://res.cloudinary.com/htc0pkenr/image/upload/v1578445796/vdvk6qe9aw82yrghsvvx.png)
+![Sheet View Page](https://res.cloudinary.com/htc0pkenr/image/upload/c_scale,w_450/v1578445796/vdvk6qe9aw82yrghsvvx.png)
 Sheet View Page
 
-![Form Page](https://res.cloudinary.com/htc0pkenr/image/upload/v1578445797/xv3smfubtpqi6djiktgt.png)
+![Form Page](https://res.cloudinary.com/htc0pkenr/image/upload/c_scale,w_450/v1578445797/xv3smfubtpqi6djiktgt.png)
 Form Page
 
 ## Project Summary
-I wanted to start the development process on an app that allows you to create character or monster sheets for various table-top RPG games.
+> I wanted to start the development process on an app that allows you to create character or monster sheets for various table-top RPG games.
 
 >
 
@@ -32,7 +32,7 @@ I wanted to start the development process on an app that allows you to create ch
 
 ## React Flow
 
-![React Flow](https://res.cloudinary.com/htc0pkenr/image/upload/v1578445796/ljoghiqvc7oucqp2rkix.jpg)
+![React Flow](https://res.cloudinary.com/htc0pkenr/image/upload/c_scale,w_450/v1578445796/ljoghiqvc7oucqp2rkix.jpg)
 
 ##Feature Walkthroughs
 
