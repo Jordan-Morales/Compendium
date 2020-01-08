@@ -18,7 +18,6 @@ Form Page
 ## Project Summary
 > I wanted to start the development process on an app that allows you to create character or monster sheets for various table-top RPG games.
 
->
 
 ## User Stories
 - User is able to create account and login.
@@ -32,7 +31,7 @@ Form Page
 
 ## React Flow
 
-![React Flow](https://res.cloudinary.com/htc0pkenr/image/upload/c_scale,w_450/v1578445796/ljoghiqvc7oucqp2rkix.jpg)
+![React Flow](https://res.cloudinary.com/htc0pkenr/image/upload/v1578445796/ljoghiqvc7oucqp2rkix.jpg)
 
 ##Feature Walkthroughs
 
