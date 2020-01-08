@@ -22,10 +22,10 @@ ion-icon {
 }
 
 footer {
-  display: flex;
   justify-content: center;
   width: 80%;
   text-align: center;
+  margin-top: 6vw;
 }
 
 h1 {
@@ -42,21 +42,26 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-content:  flex-start;
-  background-color: grey;
+  background-color: rgb(115, 115, 115);
+
 }
 
 .page {
+
   height: 80%;
   min-height: 80vh;
   width: 85%;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  border: 10px solid black;
+  border: 10px solid rgb(34, 11, 73);
+  border-top: 0;
   border-left: 0;
   background-image: url(https://res.cloudinary.com/htc0pkenr/image/upload/v1578047472/flu1uxtamrns0gdrxtot.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
+  box-shadow: 0px 18px 8px 6px rgba(0, 0, 0, 0.80);
+  border-top-left-radius: 16px;
 }
 
 .nav {
@@ -70,7 +75,7 @@ h1 {
 .nav-wrapper {
   align-items: baseline;
   justify-content: center;
-  z-index: 0;
+
 }
 
 .loginnav-wrapper {
@@ -78,6 +83,8 @@ h1 {
   display: flex;
   align-content: center;
   justify-content: center;
+  z-index: 1;
+
 }
 .loginnav-wrapper > button {
   margin-left: 10px;
@@ -120,6 +127,8 @@ li {
   min-height: 80vh;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  border-top-left-radius: 25px;
+
 }
 
 .mainSection {
@@ -127,6 +136,7 @@ li {
   min-height: 80vh;
   border-top-right-radius: 10px;
   text-align: center;
+
 
 }
 .center {
