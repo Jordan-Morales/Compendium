@@ -12,8 +12,8 @@
     "react-scripts": "3.3.0"
   },
   "engines": {
-    "node": "14.x",
-    "npm": "5.x"
+    "node": "15.x",
+    "npm": "7.x"
   },
   "scripts": {
     "start": "react-scripts start",
