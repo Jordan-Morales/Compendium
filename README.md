@@ -44,4 +44,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Update
 
-- Update to Stack-22 Deployment
+- Update to Stack-22 Deployment 
